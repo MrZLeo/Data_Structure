@@ -31,14 +31,15 @@ public class BST<E extends Comparable<E>> {
         } else if (root.e.compareTo(e) > 0) {
             root.right = add(root, e);
         } else if (root.e.compareTo(e) < 0) {
-            root.left  = add(root, e);
+            root.left = add(root, e);
         }
         
+        size++;
         return root;
     }
 
     public void add(E e){
         add(this.root, e);
     } 
-    
+
 }
