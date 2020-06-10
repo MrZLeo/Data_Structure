@@ -1,5 +1,9 @@
 package Data_Structure;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.Queue;
+
 public class BST<E extends Comparable<E>> {
 
     private class Node{
@@ -76,6 +80,40 @@ public class BST<E extends Comparable<E>> {
         System.out.println(node.e);
         preorder(node.left);
         preorder(node.right);
+    }
+
+    // No recursion preorder
+    public void preorderNR(){
+        Deque<Node> stack = new ArrayDeque<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            Node cur = stack.pop();
+            
+            System.out.println(cur.e);
+            if (root.right != null) {
+                stack.push(root.right);
+            }
+            if (root.left != null) {
+                stack.push(root.left);
+            }
+        }
+    }
+
+    public void levelorder(){
+        Queue<Node> queue = new ArrayDeque<>();
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            Node cur = queue.remove();
+            System.out.println(cur.e);
+
+            if (cur.left != null) {
+                queue.add(cur.left);
+            }
+            if (cur.right != null) {
+                queue.add(cur.right);
+            }
+        }
     }
 
     // sorted!
