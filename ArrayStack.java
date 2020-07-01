@@ -1,12 +1,15 @@
-public class arrayStack<E> implements Stack<E>{
+/**
+ * @author MrZLeo
+ */
+public class ArrayStack<E> implements Stack<E> {
 
     Array<E> array;
 
-    public arrayStack(int capacity){
+    public ArrayStack(int capacity) {
         array = new Array<>(capacity);
     }
 
-    public arrayStack(){
+    public ArrayStack() {
         array = new Array<>();
     }
 
@@ -36,13 +39,13 @@ public class arrayStack<E> implements Stack<E>{
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         StringBuilder res = new StringBuilder();
         res.append("Stack: ");
         res.append('[');
         for (int i = 0; i < array.getSize(); i++) {
             res.append(array.get(i));
-            if (i != array.getSize()-1) {
+            if (i != array.getSize() - 1) {
                 res.append(", ");
             }
         }

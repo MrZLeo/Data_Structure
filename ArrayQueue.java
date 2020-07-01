@@ -1,11 +1,15 @@
+/**
+ * @author MrZLeo
+ */
 public class ArrayQueue<E> implements Queue<E> {
 
     Array<E> array;
-    public ArrayQueue(int capacity){
+
+    public ArrayQueue(int capacity) {
         array = new Array<>(capacity);
     }
 
-    public ArrayQueue(){
+    public ArrayQueue() {
         array = new Array<>();
     }
 
@@ -24,7 +28,7 @@ public class ArrayQueue<E> implements Queue<E> {
         return array.getSize();
     }
 
-    public int getCapacity(){
+    public int getCapacity() {
         return array.getCapacity();
     }
 
@@ -39,7 +43,7 @@ public class ArrayQueue<E> implements Queue<E> {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
 
         StringBuilder res = new StringBuilder();
         res.append("Queue: ");
@@ -47,7 +51,7 @@ public class ArrayQueue<E> implements Queue<E> {
         for (int i = 0; i < array.getSize(); i++) {
             res.append(array.get(i));
 
-            if (i != array.getSize()-1){
+            if (i != array.getSize() - 1) {
                 res.append(", ");
             }
         }
