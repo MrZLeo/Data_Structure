@@ -14,7 +14,7 @@ public class LinkedList<E> {
         }
     }
 
-    private Node dummyHead;
+    private final Node dummyHead;
     private int size;
 
     LinkedList() {
@@ -31,11 +31,13 @@ public class LinkedList<E> {
     }
 
     public void add(E e) {
+        assert dummyHead != null;
         dummyHead.next = new Node(e);
         size++;
     }
 
     public E removeFirst() {
+        assert dummyHead != null;
         E ret = dummyHead.next.e;
         Node prev = dummyHead.next;
         dummyHead.next = prev.next;

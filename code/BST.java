@@ -18,8 +18,8 @@ public class BST<E extends Comparable<E>> {
         }
     }
 
-    Node root;
-    int size;
+    private final Node root;
+    private int size;
 
     BST() {
         this.root = null;
@@ -97,6 +97,7 @@ public class BST<E extends Comparable<E>> {
             Node cur = stack.pop();
 
             System.out.println(cur.e);
+            assert root != null;
             if (root.right != null) {
                 stack.push(root.right);
             }
@@ -150,6 +151,10 @@ public class BST<E extends Comparable<E>> {
         postorder(node.left);
         postorder(node.right);
         System.out.println(node.e);
+    }
+
+    public void remove(E e) {
+
     }
 
     @Override
