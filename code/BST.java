@@ -1,4 +1,4 @@
-package src;
+package code;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

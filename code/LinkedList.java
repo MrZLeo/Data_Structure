@@ -1,4 +1,4 @@
-package src;
+package code;
 
 /**
  * @author MrZLeo
