@@ -1,4 +1,3 @@
-package Data_Structure;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -154,21 +153,17 @@ public class BST<E extends Comparable<E>> {
 
     private void generateBSTString(Node node, int depth, StringBuilder res){
         if (node == null) {
-            res.append(generateBSTDepthString(depth) + "null\n");
+            res.append(generateBSTDepthString(depth)).append("null\n");
             return;
         }
 
-        res.append(generateBSTDepthString(depth) + node.e + "\n");
+        res.append(generateBSTDepthString(depth)).append(node.e).append("\n");
         generateBSTString(node.left, depth + 1, res);
         generateBSTString(node.right, depth + 1, res);
     }
 
     private String generateBSTDepthString(int depth){
-        StringBuilder res = new StringBuilder();
-        for (int i = 0; i < depth; i++) {
-            res.append("--");
-        }
 
-        return res.toString();
+        return "--".repeat(Math.max(0, depth));
     }
 }
