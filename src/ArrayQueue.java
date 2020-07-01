@@ -1,3 +1,5 @@
+package src;
+
 /**
  * @author MrZLeo
  */
@@ -46,7 +48,7 @@ public class ArrayQueue<E> implements Queue<E> {
     public String toString() {
 
         StringBuilder res = new StringBuilder();
-        res.append("Queue: ");
+        res.append("src.Queue: ");
         res.append("Front [");
         for (int i = 0; i < array.getSize(); i++) {
             res.append(array.get(i));
