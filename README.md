@@ -5,7 +5,7 @@ it contains a lot of data structure that I learn gradually：
 2. [ArrayQueue](https://github.com/MrZLeo/Data_Structure/blob/master/code/ArrayQueue.java)
 3. [ArrayStack](https://github.com/MrZLeo/Data_Structure/blob/master/code/ArrayStack.java)
 4. [LinkedList](https://github.com/MrZLeo/Data_Structure/blob/master/code/LinkedList.java)
-5. [Binary Search Tree](https://github.com/MrZLeo/Data_Structure/blob/master/code/BST.java)
+5. [BinarySearchTree](https://github.com/MrZLeo/Data_Structure/blob/master/code/BST.java)
 6. [TreeSet](https://github.com/MrZLeo/Data_Structure/blob/master/code/TreeSet.java)
 
 * Here are the interface:
@@ -16,4 +16,5 @@ it contains a lot of data structure that I learn gradually：
 
 * Here will be some documents in the future:
 
-* Here will be some solutions of LeetCode:
+* Here are some solutions of LeetCode:
+    * [563. Binary Tree Tilt](https://github.com/MrZLeo/Data_Structure/blob/master/LeetCode/BinaryTreeTilt.java)
