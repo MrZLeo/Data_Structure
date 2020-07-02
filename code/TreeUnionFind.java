@@ -2,6 +2,7 @@ package code;
 
 /**
  * @author MrZLeo
+ * O(log* n)
  */
 public class TreeUnionFind implements UnionFind {
 
