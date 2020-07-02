@@ -35,7 +35,7 @@ public class TreeUnionFind implements UnionFind {
             p = parent[p];
         }
 
-        return p;
+        return parent[p];
     }
 
     @Override

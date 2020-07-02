@@ -5,7 +5,7 @@ package code;
  */
 public class ArrayStack<E> implements Stack<E> {
 
-    private Array<E> array;
+    private final Array<E> array;
 
     public ArrayStack(int capacity) {
         array = new Array<>(capacity);
