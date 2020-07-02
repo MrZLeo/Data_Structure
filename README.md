@@ -20,7 +20,10 @@ I will use Java to build these data structure first and latter maybe C, C++ and 
 4. [Map](https://github.com/MrZLeo/Data_Structure/blob/master/code/Map.java)
 5. [UnionFind](https://github.com/MrZLeo/Data_Structure/blob/master/code/UnionFind.java)
 
-* Here will be some documents in the future:
+* Here are some documents in the future:
+
+    * [LinkedList problems](https://github.com/MrZLeo/Data_Structure/blob/master/document/LinkedListProblems.pdf)
+    * [Data-Structures-and-Algorithms-in-Java-6th-Edition](https://github.com/MrZLeo/Data_Structure/blob/master/document/Data-Structures-and-Algorithms-in-Java-6th-Edition.pdf)
 
 * Here are some solutions of LeetCode:
     * [563. Binary Tree Tilt](https://github.com/MrZLeo/Data_Structure/blob/master/LeetCode/BinaryTreeTilt.java)
