@@ -2,14 +2,14 @@ package code;
 
 /**
  * @author MrZLeo
- *
+ * <p>
  * Quick Find version.
  */
-public class ArrayUnionFind implements UnionFind{
+public class ArrayUnionFind implements UnionFind {
 
     private final int[] id;
 
-    ArrayUnionFind(int size){
+    ArrayUnionFind(int size) {
         id = new int[size];
 
         for (int i = 0; i < size; i++) {
@@ -22,8 +22,8 @@ public class ArrayUnionFind implements UnionFind{
         return id.length;
     }
 
-    private int find(int p){
-        if (p < 0 || p >= id.length){
+    private int find(int p) {
+        if (p < 0 || p >= id.length) {
             throw new IllegalArgumentException("out of bound!");
         }
 
@@ -40,12 +40,12 @@ public class ArrayUnionFind implements UnionFind{
         int pId = find(p);
         int qId = find(q);
 
-        if (pId == qId){
+        if (pId == qId) {
             return;
         }
 
         for (int i = 0; i < id.length; i++) {
-            if (find(i) == pId){
+            if (find(i) == pId) {
                 id[i] = qId;
             }
         }

@@ -3,12 +3,12 @@ package code;
 /**
  * @author MrZLeo
  */
-public class TreeUnionFind implements UnionFind{
+public class TreeUnionFind implements UnionFind {
 
     private final int[] parent;
     private final int[] depth;
 
-    public TreeUnionFind(int size){
+    public TreeUnionFind(int size) {
         parent = new int[size];
         depth = new int[size];
 
@@ -23,12 +23,14 @@ public class TreeUnionFind implements UnionFind{
         return parent.length;
     }
 
-    private int find(int p){
-        if (p < 0 || p >= parent.length){
+    private int find(int p) {
+        if (p < 0 || p >= parent.length) {
             throw new IllegalArgumentException("out of bound.");
         }
 
-        while (p != parent[p]){
+        while (p != parent[p]) {
+            // path compression.
+            parent[p] = parent[parent[p]];
             p = parent[p];
         }
 
@@ -45,16 +47,17 @@ public class TreeUnionFind implements UnionFind{
         int pRoot = find(p);
         int qRoot = find(q);
 
-        if (pRoot == qRoot){
+        if (pRoot == qRoot) {
             return;
         }
 
-        if (depth[pRoot] < depth[qRoot]){
+        if (depth[pRoot] < depth[qRoot]) {
             parent[pRoot] = qRoot;
-            depth[qRoot] += depth[pRoot];
+        } else if (depth[pRoot] > depth[qRoot]) {
+            parent[qRoot] = pRoot;
         } else {
             parent[qRoot] = pRoot;
-            depth[pRoot] += depth[qRoot];
+            depth[pRoot]++;
         }
     }
 }
