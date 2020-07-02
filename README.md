@@ -1,6 +1,9 @@
 # Data_Structure
 This is a repository that store my handwritten data structure.
-it contains a lot of data structure that I learn gradually：
+It contains a lot of data structure that I learn gradually.
+I will use Java to build these data structure first and latter maybe C, C++ and Python and even Swift or Rust.
+
+* Here are the list:
 1. [Array](https://github.com/MrZLeo/Data_Structure/blob/master/code/Array.java)
 2. [ArrayQueue](https://github.com/MrZLeo/Data_Structure/blob/master/code/ArrayQueue.java)
 3. [ArrayStack](https://github.com/MrZLeo/Data_Structure/blob/master/code/ArrayStack.java)
