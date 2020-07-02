@@ -6,12 +6,15 @@ package code;
 public class TreeUnionFind implements UnionFind{
 
     private final int[] parent;
+    private final int[] depth;
 
     public TreeUnionFind(int size){
         parent = new int[size];
+        depth = new int[size];
 
         for (int i = 0; i < parent.length; i++) {
             parent[i] = i;
+            depth[i] = 1;
         }
     }
 
@@ -46,6 +49,12 @@ public class TreeUnionFind implements UnionFind{
             return;
         }
 
-        parent[pRoot] = qRoot;
+        if (depth[pRoot] < depth[qRoot]){
+            parent[pRoot] = qRoot;
+            depth[qRoot] += depth[pRoot];
+        } else {
+            parent[qRoot] = pRoot;
+            depth[pRoot] += depth[qRoot];
+        }
     }
 }
