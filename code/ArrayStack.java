@@ -5,7 +5,7 @@ package code;
  */
 public class ArrayStack<E> implements Stack<E> {
 
-    Array<E> array;
+    private Array<E> array;
 
     public ArrayStack(int capacity) {
         array = new Array<>(capacity);
@@ -43,7 +43,7 @@ public class ArrayStack<E> implements Stack<E> {
     @Override
     public String toString() {
         StringBuilder res = new StringBuilder();
-        res.append("src.Stack: ");
+        res.append("Stack: ");
         res.append('[');
         for (int i = 0; i < array.getSize(); i++) {
             res.append(array.get(i));
