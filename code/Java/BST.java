@@ -1,4 +1,4 @@
-package code;
+package code.Java;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -7,18 +7,20 @@ import java.util.Queue;
 /**
  * @author MrZLeo
  */
-public class BST<E extends Comparable<E>> {
+public class BST<K extends Comparable<K>, V> {
 
-    private class Node {
-        E e;
+    protected class Node {
+        K key;
+        V value;
         Node left, right;
 
-        Node(E e) {
-            this.e = e;
+        Node(K key, V value) {
+            this.key = key;
+            this.value = value;
         }
     }
 
-    private final Node root;
+    protected final Node root;
     private int size;
 
     BST() {
@@ -35,42 +37,42 @@ public class BST<E extends Comparable<E>> {
     }
 
     // Recursion add.
-    private Node add(Node root, E e) {
+    private Node add(Node root, K key, V value) {
 
         if (root == null) {
             size++;
-            root = new Node(e);
+            root = new Node(key, value);
         }
 
-        if (e.compareTo(root.e) > 0) {
-            root.right = add(root, e);
-        } else if (e.compareTo(root.e) < 0) {
-            root.left = add(root, e);
+        if (key.compareTo(root.key) > 0) {
+            root.right = add(root, key, value);
+        } else if (key.compareTo(root.key) < 0) {
+            root.left = add(root, key, value);
         }
 
         return root;
     }
 
-    public void add(E e) {
-        add(this.root, e);
+    public void add(K key, V value) {
+        add(this.root, key, value);
     }
 
-    public boolean contains(E e) {
-        return contains(root, e);
+    public boolean contains(K key) {
+        return contains(root, key);
     }
 
     // Recursion contains
-    private boolean contains(Node node, E e) {
+    private boolean contains(Node node, K key) {
         if (node == null) {
             return false;
         }
 
-        if (node.e.compareTo(e) == 0) {
+        if (node.key.compareTo(key) == 0) {
             return true;
-        } else if (e.compareTo(node.e) < 0) {
-            return contains(node.left, e);
+        } else if (key.compareTo(node.key) < 0) {
+            return contains(node.left, key);
         } else {
-            return contains(node.right, e);
+            return contains(node.right, key);
         }
     }
 
@@ -84,7 +86,7 @@ public class BST<E extends Comparable<E>> {
             return;
         }
 
-        System.out.println(node.e);
+        System.out.println(node.key);
         preorder(node.left);
         preorder(node.right);
     }
@@ -96,7 +98,7 @@ public class BST<E extends Comparable<E>> {
         while (!stack.isEmpty()) {
             Node cur = stack.pop();
 
-            System.out.println(cur.e);
+            System.out.println(cur.key);
             assert root != null;
             if (root.right != null) {
                 stack.push(root.right);
@@ -113,7 +115,7 @@ public class BST<E extends Comparable<E>> {
 
         while (!queue.isEmpty()) {
             Node cur = queue.remove();
-            System.out.println(cur.e);
+            System.out.println(cur.key);
 
             if (cur.left != null) {
                 queue.add(cur.left);
@@ -135,7 +137,7 @@ public class BST<E extends Comparable<E>> {
         }
 
         inorder(node.left);
-        System.out.println(node.e);
+        System.out.println(node.key);
         inorder(node.right);
     }
 
@@ -150,10 +152,10 @@ public class BST<E extends Comparable<E>> {
 
         postorder(node.left);
         postorder(node.right);
-        System.out.println(node.e);
+        System.out.println(node.key);
     }
 
-    public void remove(E e) {
+    public void remove(K key) {
 
     }
 
@@ -170,7 +172,7 @@ public class BST<E extends Comparable<E>> {
             return;
         }
 
-        res.append(generateBSTDepthString(depth)).append(node.e).append("\n");
+        res.append(generateBSTDepthString(depth)).append(node.key).append("\n");
         generateBSTString(node.left, depth + 1, res);
         generateBSTString(node.right, depth + 1, res);
     }

@@ -1,4 +1,4 @@
-package code;
+package code.Java;
 
 /**
  * @author MrZLeo
