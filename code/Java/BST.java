@@ -9,7 +9,7 @@ import java.util.Queue;
  */
 public class BST<K extends Comparable<K>, V> {
 
-    protected class Node {
+    private class Node {
         K key;
         V value;
         Node left, right;
@@ -20,7 +20,7 @@ public class BST<K extends Comparable<K>, V> {
         }
     }
 
-    protected final Node root;
+    private final Node root;
     private int size;
 
     BST() {
