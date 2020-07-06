@@ -3,13 +3,13 @@ package code.Java;
 /**
  * @author MrzLeo
  */
-/*
+
 public class TreeSet<E extends Comparable<E>> implements Set<E> {
 
-    private final BST<E> treeSet;
+    private final BST<E, Object> treeSet;
 
     public TreeSet() {
-        treeSet = (BST<E>) new BST<>();
+        treeSet =  new BST<>();
     }
 
     @Override
@@ -25,7 +25,7 @@ public class TreeSet<E extends Comparable<E>> implements Set<E> {
     @Override
     public void add(E e) {
         if (!treeSet.contains(e)) {
-            treeSet.add(e);
+            treeSet.add(e, null);
         }
     }
 
@@ -35,7 +35,7 @@ public class TreeSet<E extends Comparable<E>> implements Set<E> {
             return;
         }
 
-//        BST.remove have not finish yet!!!
+        treeSet.remove(e);
     }
 
     @Override
@@ -44,4 +44,3 @@ public class TreeSet<E extends Comparable<E>> implements Set<E> {
     }
 }
 
- */
