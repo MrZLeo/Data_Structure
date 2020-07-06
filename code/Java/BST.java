@@ -2,6 +2,7 @@ package code.Java;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.Objects;
 import java.util.Queue;
 
 /**
@@ -20,7 +21,7 @@ public class BST<K extends Comparable<K>, V> {
         }
     }
 
-    private final Node root;
+    private Node root;
     private int size;
 
     BST() {
@@ -57,23 +58,34 @@ public class BST<K extends Comparable<K>, V> {
         add(this.root, key, value);
     }
 
-    public boolean contains(K key) {
-        return contains(root, key);
-    }
-
-    // Recursion contains
-    private boolean contains(Node node, K key) {
-        if (node == null) {
-            return false;
+    private Node getNode(Node node, K key) {
+        if (isEmpty() || node == null) {
+            return null;
         }
 
         if (node.key.compareTo(key) == 0) {
-            return true;
-        } else if (key.compareTo(node.key) < 0) {
-            return contains(node.left, key);
+            return node;
+        } else if (node.key.compareTo(key) > 0) {
+            return getNode(node.left, key);
         } else {
-            return contains(node.right, key);
+            return getNode(node.right, key);
         }
+    }
+
+    public V get(K key) {
+        return Objects.requireNonNull(getNode(root, key)).value;
+    }
+
+    public void set(K key, V value) {
+        Node node = getNode(root, key);
+        if (node == null) {
+            throw new IllegalArgumentException(key + "is not exist!");
+        }
+        node.value = value;
+    }
+
+    public boolean contains(K key) {
+        return getNode(root, key) != null;
     }
 
     public void preorder() {
@@ -155,30 +167,122 @@ public class BST<K extends Comparable<K>, V> {
         System.out.println(node.key);
     }
 
-    public void remove(K key) {
+    private Node getMinimum(Node node) {
+        if (node.left == null) {
+            return node;
+        }
 
+        return getMinimum(node.left);
+    }
+
+    public K getMinimum() {
+        if (this.isEmpty()) {
+            throw new IllegalArgumentException("Tree is empty");
+        }
+
+        assert root != null;
+        return getMinimum(root).key;
+    }
+
+    private Node removeMin(Node node) {
+
+        if (node.left == null) {
+            Node rightNode = node.right;
+            node.right = null;
+            size--;
+            return rightNode;
+        }
+
+        node.left = removeMin(node.left);
+        return node;
+    }
+
+    private Node getMaximum(Node node) {
+        if (node.right == null) {
+            return node;
+        }
+
+        return getMaximum(node.right);
+    }
+
+    public K getMaximum() {
+        if (this.isEmpty()) {
+            throw new IllegalArgumentException("Tree is empty");
+        }
+
+        assert root != null;
+        return getMaximum(root).key;
+    }
+
+    public V remove(K key) {
+        Node node = getNode(root, key);
+
+        if (node != null){
+            root = remove(root, key);
+            return node.value;
+        }
+        return null;
+    }
+
+    private Node remove(Node node, K key){
+        if (node == null){
+            return null;
+        }
+
+        if (node.key.compareTo(key) > 0){
+            return remove(node.left, key);
+        } else if (node.key.compareTo(key) < 0){
+            return remove(node.right, key);
+        } else {
+            // left tree is empty
+            if (node.left == null){
+                Node rightNode = node.right;
+                node.right = null;
+                size--;
+                return rightNode;
+            }
+            // right tree is empty
+            if (node.right == null){
+                Node leftNode = node.left;
+                node.left = null;
+                size--;
+                return leftNode;
+            }
+
+            // left and right are neither empty
+
+            // first, find out minimum of node's right child
+            Node successor = getMinimum(node.right);
+            // successor replace the position of node
+            successor.right = removeMin(node.right);
+            successor.left = node.left;
+            // make node be null
+            node.left = node.right = null;
+            return successor;
+        }
     }
 
     @Override
     public String toString() {
         StringBuilder res = new StringBuilder();
-        generateBSTString(root, 0, res);
+        res.append("Binary Search Tree:").append("\n");
+        generateString(root, 0, res);
         return res.toString();
     }
 
-    private void generateBSTString(Node node, int depth, StringBuilder res) {
+    private void generateString(Node node, int depth, StringBuilder res) {
         if (node == null) {
-            res.append(generateBSTDepthString(depth)).append("null\n");
+            res.append(generateDepthString(depth)).append("null\n");
             return;
         }
 
-        res.append(generateBSTDepthString(depth)).append(node.key).append("\n");
-        generateBSTString(node.left, depth + 1, res);
-        generateBSTString(node.right, depth + 1, res);
+        res.append(generateDepthString(depth)).append(node.key).append("\n");
+        generateString(node.left, depth + 1, res);
+        generateString(node.right, depth + 1, res);
     }
 
-    private String generateBSTDepthString(int depth) {
-
+    private String generateDepthString(int depth) {
         return "--".repeat(Math.max(0, depth));
     }
+
 }
