@@ -10,10 +10,11 @@ I will use Java to build these data structure first and latter maybe C, C++ and 
 4. [LinkedList](https://github.com/MrZLeo/Data_Structure/blob/master/code/Java/LinkedList.java)
 5. [BinarySearchTree](https://github.com/MrZLeo/Data_Structure/blob/master/code/Java/BST.java)
 6. [TreeSet](https://github.com/MrZLeo/Data_Structure/blob/master/code/Java/TreeSet.java)
-7. [ArrayUnionFind (no recommend)](https://github.com/MrZLeo/Data_Structure/blob/master/code/Java/ArrayUnionFind.java)
-8. [TreeUnionFind](https://github.com/MrZLeo/Data_Structure/blob/master/code/Java/TreeUnionFind.java)
-9. [AVL Tree](https://github.com/MrZLeo/Data_Structure/blob/master/code/Java/AVLTree.java)
-10. [Red Black Tree](https://github.com/MrZLeo/Data_Structure/blob/master/code/Java/RBTree.java)
+7. [TreeMap](https://github.com/MrZLeo/Data_Structure/blob/master/code/Java/TreeMap.java)
+8. [ArrayUnionFind (no recommend)](https://github.com/MrZLeo/Data_Structure/blob/master/code/Java/ArrayUnionFind.java)
+9. [TreeUnionFind](https://github.com/MrZLeo/Data_Structure/blob/master/code/Java/TreeUnionFind.java)
+10. [AVL Tree](https://github.com/MrZLeo/Data_Structure/blob/master/code/Java/AVLTree.java)
+11. [Red Black Tree](https://github.com/MrZLeo/Data_Structure/blob/master/code/Java/RBTree.java)
 
 * Here are the interface:
 1. [Queue](https://github.com/MrZLeo/Data_Structure/blob/master/code/Java/Queue.java)
