@@ -6,67 +6,72 @@ typedef struct Node{
     Node* next;
 }Node;
 
-Node* initNode(int element){
+typedef struct LinkedList{
+    Node* head;
+    int size;
+}LinkedList;
+
+Node* initNode(int e){
     Node* node;
-    node -> element = element;
+    node -> element = e;
     node -> next = NULL;
-    return node;
 }
 
-int getSize(Node* node){
-    int size = 0;
-    while (node->next != NULL){
-        size++;
-    }
-    return size;
+Node* getNode(Node* node, int e){
+    Node* newNode = (Node*)malloc(sizeof(Node));
+    node -> next = newNode;
+    newNode -> element = e;
+    newNode -> next = NULL;
 }
 
-Node* add(Node* head, int newElement){
-    if (head == NULL){
-        return initNode(0);
-    }
-    
-    Node* cur = head;
-    Node* newNode;
+LinkedList* initLinkedList(int e){
+    LinkedList* linkedList = (LinkedList*)malloc(sizeof(LinkedList));
+    linkedList -> head = initNode(e);
+    linkedList -> size = 0;
+    return linkedList;
+}
+
+void add(LinkedList* list, int newElement){
+    Node* cur = list -> head;
     while (cur != NULL){
-        cur = head -> next;
+        cur = cur -> next;
     }
-    newNode = cur -> next;
-    
-    return head;
+    cur -> next = getNode(cur, newElement);
+    list -> size++;
 }
 
-void order(Node* head) {
-    if (head == NULL) {
+void order(LinkedList* list) {
+    if (list == NULL) {
         return;
     }
     
-    Node* cur = head;
+    Node* cur = list -> head;
     while (cur != NULL){
         printf("%d", cur -> element);
     }
 }
 
-void remove(Node* head, int removeElement){
-    if (head == NULL){
+void remove(LinkedList* list, int removeElement){
+    if (list == NULL){
         return;
     }
-    Node* prev = head;
+    Node* prev = list -> head;
     
     while (prev != NULL){
         if (prev -> element == removeElement){
             Node* cur = prev -> next;
             prev -> next = cur -> next;
             free(cur);
+            list -> size--;
         }
     }
 }
 
-int contains(Node* head, int e){
-    if (head == NULL) {
+int contains(LinkedList* list, int e){
+    if (list == NULL) {
         return NULL;
     }
-    Node* cur = head;
+    Node* cur = list->head;
     while (cur != NULL){
         if (cur->element == e){
             return 1;
@@ -75,6 +80,6 @@ int contains(Node* head, int e){
     return 0;
 }
 
-int isEmpty(Node* head){
-    return head == NULL;
+int isEmpty(LinkedList* list){
+    return list -> size == NULL;
 }
