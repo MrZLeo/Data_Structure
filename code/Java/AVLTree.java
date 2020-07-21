@@ -11,7 +11,7 @@ import java.util.Queue;
  * @param <K> the type of keys maintained by this map
  * @param <V> the type of mapped values
  */
-public class AVLTree<K extends Comparable<K>, V> {
+public class AVLTree<K extends Comparable<K>, V> implements Tree<K, V>{
 
     private class Node {
         K key;
@@ -35,10 +35,12 @@ public class AVLTree<K extends Comparable<K>, V> {
         size = 0;
     }
 
+    @Override
     public int getSize() {
         return size;
     }
 
+    @Override
     public boolean isEmpty() {
         return size == 0;
     }
@@ -180,6 +182,7 @@ public class AVLTree<K extends Comparable<K>, V> {
         return node;
     }
 
+    @Override
     public void add(K key, V value){
         add(root, key, value);
     }
@@ -198,10 +201,12 @@ public class AVLTree<K extends Comparable<K>, V> {
         }
     }
 
+    @Override
     public V get(K key) {
         return Objects.requireNonNull(getNode(root, key)).value;
     }
 
+    @Override
     public void set(K key, V value) {
         Node node = getNode(root, key);
         if (node == null) {
@@ -210,6 +215,7 @@ public class AVLTree<K extends Comparable<K>, V> {
         node.value = value;
     }
 
+    @Override
     public boolean contains(K key) {
         return getNode(root, key) != null;
     }
@@ -339,6 +345,7 @@ public class AVLTree<K extends Comparable<K>, V> {
         return getMaximum(root).key;
     }
 
+    @Override
     public V remove(K key) {
         Node node = getNode(root, key);
 

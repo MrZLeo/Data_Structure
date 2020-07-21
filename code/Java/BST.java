@@ -8,7 +8,7 @@ import java.util.Queue;
 /**
  * @author MrZLeo
  */
-public class BST<K extends Comparable<K>, V> {
+public class BST<K extends Comparable<K>, V> implements Tree<K, V>{
 
     private class Node {
         K key;
@@ -29,10 +29,12 @@ public class BST<K extends Comparable<K>, V> {
         this.size = 0;
     }
 
+    @Override
     public int getSize() {
         return size;
     }
 
+    @Override
     public boolean isEmpty() {
         return size == 0;
     }
@@ -54,6 +56,7 @@ public class BST<K extends Comparable<K>, V> {
         return root;
     }
 
+    @Override
     public void add(K key, V value) {
         add(this.root, key, value);
     }
@@ -72,10 +75,12 @@ public class BST<K extends Comparable<K>, V> {
         }
     }
 
+    @Override
     public V get(K key) {
         return Objects.requireNonNull(getNode(root, key)).value;
     }
 
+    @Override
     public void set(K key, V value) {
         Node node = getNode(root, key);
         if (node == null) {
@@ -84,6 +89,7 @@ public class BST<K extends Comparable<K>, V> {
         node.value = value;
     }
 
+    @Override
     public boolean contains(K key) {
         return getNode(root, key) != null;
     }
@@ -214,6 +220,7 @@ public class BST<K extends Comparable<K>, V> {
         return getMaximum(root).key;
     }
 
+    @Override
     public V remove(K key) {
         Node node = getNode(root, key);
 
