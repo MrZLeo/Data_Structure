@@ -9,7 +9,7 @@ import java.util.Queue;
  * @author MrZLeo
  */
 public class BST<K extends Comparable<K>, V> implements Tree<K, V>{
-
+    
     private class Node {
         K key;
         V value;
@@ -20,7 +20,7 @@ public class BST<K extends Comparable<K>, V> implements Tree<K, V>{
             this.value = value;
         }
     }
-
+    
     private Node root;
     private int size;
 
