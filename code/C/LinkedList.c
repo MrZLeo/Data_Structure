@@ -54,7 +54,7 @@ LinkedList *initLinkedList(int e) {
 }
 
 void add(LinkedList *list, int newElement) {
-    if (!list){
+    if (!list) {
         list = initLinkedList(newElement);
     }
 
@@ -62,7 +62,7 @@ void add(LinkedList *list, int newElement) {
     while (cur->next != NULL) {
         cur = cur->next;
     }
-    cur->next = getNode( cur, newElement);
+    cur->next = getNode(cur, newElement);
     list->size++;
 }
 
