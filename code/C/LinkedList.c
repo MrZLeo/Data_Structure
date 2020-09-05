@@ -72,8 +72,9 @@ void order(LinkedList *list) {
     }
 
     Node *cur = list->head;
+    printf("LinkedList:\n");
     while (cur != NULL) {
-        printf("%d", cur->element);
+        printf("%d ", cur->element);
         cur = cur->next;
     }
 }
@@ -84,8 +85,8 @@ void removeElement(LinkedList *list, int removeElement) {
     }
     Node *prev = list->head;
 
-    while (prev != NULL) {
-        if (prev->element == removeElement) {
+    while (prev->next != NULL) {
+        if (prev->next->element == removeElement) {
             Node *cur = prev->next;
             prev->next = cur->next;
             free(cur);
@@ -121,5 +122,6 @@ int main() {
     removeElement(list, 1);
     printf("%d\n", contains(list, 1));
     printf("%d\n", isEmpty(list));
+    order(list);
     return 0;
 }
