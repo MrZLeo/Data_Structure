@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "Basic.h"
 
 typedef struct Array {
     int *array;
@@ -16,7 +15,7 @@ ArrayList *initArray(int n) {
     return arrayList;
 }
 
-void resize_array(ArrayList *arrayList, double Times) {
+void resizeArray(ArrayList *arrayList, double Times) {
     int arr[(int) ((arrayList->capacity) * Times)];
     for (int i = 0; i < arrayList->size; i++) {
         arr[i] = arrayList->array[i];
@@ -28,13 +27,13 @@ void addLast(ArrayList *arrayList, int e) {
     if ((arrayList->capacity != 0) || (arrayList->size != arrayList->capacity)) {
         arrayList->array[arrayList->size] = e;
     } else if (arrayList->size == arrayList->capacity) {
-        resize_array(arrayList, 2);
+        resizeArray(arrayList, 2);
         arrayList->array[arrayList->size] = e;
     }
     arrayList->size++;
 }
 
-int remove_array(ArrayList *arrayList, int index) {
+int removeArray(ArrayList *arrayList, int index) {
     int ret = 0;
     if (arrayList->size == 0) {
         ret = -1;
@@ -50,10 +49,23 @@ int remove_array(ArrayList *arrayList, int index) {
     }
 
     if ((arrayList->size) * 2 < arrayList->capacity) {
-        resize_array(arrayList, 0.5);
+        resizeArray(arrayList, 0.5);
     }
 
     return ret;
+}
+
+int contains(ArrayList *list, int e) {
+    for (int i = 0; i <= list->size; ++i) {
+        if (list->array[i] == e) {
+            return true;
+        }
+    }
+    return false;
+}
+
+int isEmpty(ArrayList* list){
+    return list->size == 0;
 }
 
 int main() {
@@ -62,7 +74,8 @@ int main() {
         addLast(array, i);
     }
     for (int i = 0; i < 10; ++i) {
-        printf("%d ", array->array[i]);
+        contains(array, i+1);
     }
+
     return 0;
 }

@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include "Basic.h"
 
 // Node store integer.
 struct Node;
@@ -93,16 +94,16 @@ void removeElement(LinkedList *list, int removeElement) {
 
 int contains(LinkedList *list, int e) {
     if (list == NULL) {
-        return NULL;
+        return false;
     }
     Node *cur = list->head;
     while (cur != NULL) {
         if (cur->element == e) {
-            return 1;
+            return true;
         }
         cur = cur->next;
     }
-    return 0;
+    return false;
 }
 
 int isEmpty(LinkedList *list) {
