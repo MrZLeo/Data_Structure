@@ -18,7 +18,7 @@ typedef struct LinkedList {
 
 Node *initNode(int e);
 
-Node *getNode(Node *node, int e);
+Node *getNode(Node *list, int e);
 
 LinkedList *initLinkedList(int e);
 
@@ -33,15 +33,14 @@ int contains(LinkedList *list, int e);
 int isEmpty(LinkedList *list);
 
 Node *initNode(int e) {
-    Node *node = NULL;
-    node->element = e;
-    node->next = NULL;
-    return node;
+    Node *head = (Node *) malloc(sizeof(Node));
+    head->element = e;
+    head->next = NULL;
+    return head;
 }
 
-Node *getNode(Node *node, int e) {
+Node *getNode(Node *list, int e) {
     Node *newNode = (Node *) malloc(sizeof(Node));
-    node->next = newNode;
     newNode->element = e;
     newNode->next = NULL;
     return newNode;
@@ -50,16 +49,20 @@ Node *getNode(Node *node, int e) {
 LinkedList *initLinkedList(int e) {
     LinkedList *linkedList = (LinkedList *) malloc(sizeof(LinkedList));
     linkedList->head = initNode(e);
-    linkedList->size = 0;
+    linkedList->size = 1;
     return linkedList;
 }
 
 void add(LinkedList *list, int newElement) {
+    if (!list){
+        list = initLinkedList(newElement);
+    }
+
     Node *cur = list->head;
-    while (cur != NULL) {
+    while (cur->next != NULL) {
         cur = cur->next;
     }
-    cur->next = getNode(cur, newElement);
+    cur->next = getNode( cur, newElement);
     list->size++;
 }
 
@@ -116,5 +119,7 @@ int main() {
     add(list, 2);
     add(list, 3);
     removeElement(list, 1);
+    printf("%d\n", contains(list, 1));
+    printf("%d\n", isEmpty(list));
     return 0;
 }

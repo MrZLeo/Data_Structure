@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 3.15)
-project(c_program)
+project(Array)
+project(Stack)
+project(LinkedList)
 set(CMAKE_C_STANDARD 11)
 
-add_executable(c_program Basic.h Array.c stack.c LinkedList.c)
+add_executable(Array Basic.h Array.c)
+add_executable(Stack Basic.h stack.c)
+add_executable(LinkedList Basic.h LinkedList.c)
