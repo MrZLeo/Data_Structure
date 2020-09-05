@@ -1,85 +1,119 @@
 #include<stdio.h>
+#include<stdlib.h>
 
 // Node store integer.
-typedef struct Node{
+struct Node;
+typedef struct Node Node;
+typedef struct Node {
     int element;
-    Node* next;
-}Node;
+    Node *next;
+} Node;
 
-typedef struct LinkedList{
-    Node* head;
+// linked list
+typedef struct LinkedList {
+    Node *head;
     int size;
-}LinkedList;
+} LinkedList;
 
-Node* initNode(int e){
-    Node* node;
-    node -> element = e;
-    node -> next = NULL;
+Node *initNode(int e);
+
+Node *getNode(Node *node, int e);
+
+LinkedList *initLinkedList(int e);
+
+void add(LinkedList *list, int newElement);
+
+void order(LinkedList *list);
+
+void removeElement(LinkedList *list, int removeElement);
+
+int contains(LinkedList *list, int e);
+
+int isEmpty(LinkedList *list);
+
+Node *initNode(int e) {
+    Node *node = NULL;
+    node->element = e;
+    node->next = NULL;
+    return node;
 }
 
-Node* getNode(Node* node, int e){
-    Node* newNode = (Node*)malloc(sizeof(Node));
-    node -> next = newNode;
-    newNode -> element = e;
-    newNode -> next = NULL;
+Node *getNode(Node *node, int e) {
+    Node *newNode = (Node *) malloc(sizeof(Node));
+    node->next = newNode;
+    newNode->element = e;
+    newNode->next = NULL;
+    return newNode;
 }
 
-LinkedList* initLinkedList(int e){
-    LinkedList* linkedList = (LinkedList*)malloc(sizeof(LinkedList));
-    linkedList -> head = initNode(e);
-    linkedList -> size = 0;
+LinkedList *initLinkedList(int e) {
+    LinkedList *linkedList = (LinkedList *) malloc(sizeof(LinkedList));
+    linkedList->head = initNode(e);
+    linkedList->size = 0;
     return linkedList;
 }
 
-void add(LinkedList* list, int newElement){
-    Node* cur = list -> head;
-    while (cur != NULL){
-        cur = cur -> next;
+void add(LinkedList *list, int newElement) {
+    Node *cur = list->head;
+    while (cur != NULL) {
+        cur = cur->next;
     }
-    cur -> next = getNode(cur, newElement);
-    list -> size++;
+    cur->next = getNode(cur, newElement);
+    list->size++;
 }
 
-void order(LinkedList* list) {
+void order(LinkedList *list) {
     if (list == NULL) {
         return;
     }
-    
-    Node* cur = list -> head;
-    while (cur != NULL){
-        printf("%d", cur -> element);
+
+    Node *cur = list->head;
+    while (cur != NULL) {
+        printf("%d", cur->element);
+        cur = cur->next;
     }
 }
 
-void remove(LinkedList* list, int removeElement){
-    if (list == NULL){
+void removeElement(LinkedList *list, int removeElement) {
+    if (list == NULL) {
         return;
     }
-    Node* prev = list -> head;
-    
-    while (prev != NULL){
-        if (prev -> element == removeElement){
-            Node* cur = prev -> next;
-            prev -> next = cur -> next;
+    Node *prev = list->head;
+
+    while (prev != NULL) {
+        if (prev->element == removeElement) {
+            Node *cur = prev->next;
+            prev->next = cur->next;
             free(cur);
-            list -> size--;
+            list->size--;
         }
+        prev = prev->next;
     }
 }
 
-int contains(LinkedList* list, int e){
+int contains(LinkedList *list, int e) {
     if (list == NULL) {
         return NULL;
     }
-    Node* cur = list->head;
-    while (cur != NULL){
-        if (cur->element == e){
+    Node *cur = list->head;
+    while (cur != NULL) {
+        if (cur->element == e) {
             return 1;
         }
+        cur = cur->next;
     }
     return 0;
 }
 
-int isEmpty(LinkedList* list){
-    return list -> size == NULL;
+int isEmpty(LinkedList *list) {
+    return (list->size) == 0;
+}
+
+int main() {
+    LinkedList *list = initLinkedList(0);
+    add(list, 1);
+    add(list, 2);
+    add(list, 3);
+    removeElement(list, 1);
+    return 0;
 }
