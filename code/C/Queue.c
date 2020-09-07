@@ -64,5 +64,4 @@ int main() {
     order(q);
     printf("%d\n", isEmpty(q));
     printf("%d", getSize(q));
-
 }
