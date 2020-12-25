@@ -3,7 +3,8 @@ This is a repository that store my handwritten data structure.
 It contains a lot of data structure that I learn gradually.
 I will use Java to build these data structure first and latter maybe C, C++ and Python and even Swift or Rust.
 
-* Here is the list of these data structure:
+* Here is the list of these data structure, most of them are the first version that implements by Java, and now I will 
+  trying to add more implements by C11:
 1. [Array](https://github.com/MrZLeo/Data_Structure/blob/master/code/Java/Array.java)
 2. [ArrayQueue](https://github.com/MrZLeo/Data_Structure/blob/master/code/Java/ArrayQueue.java)
 3. [ArrayStack](https://github.com/MrZLeo/Data_Structure/blob/master/code/Java/ArrayStack.java)
@@ -23,7 +24,7 @@ I will use Java to build these data structure first and latter maybe C, C++ and 
 4. [Map](https://github.com/MrZLeo/Data_Structure/blob/master/code/Java/Map.java)
 5. [UnionFind](https://github.com/MrZLeo/Data_Structure/blob/master/code/Java/UnionFind.java)
 
-* Here are some documents in the future:
+* Here are some documents for study:
 
     * [LinkedList problems](https://github.com/MrZLeo/Data_Structure/blob/master/document/LinkedListProblems.pdf)
     * [Data-Structures-and-Algorithms-in-Java-6th-Edition](https://github.com/MrZLeo/Data_Structure/blob/master/document/Data-Structures-and-Algorithms-in-Java-6th-Edition.pdf)

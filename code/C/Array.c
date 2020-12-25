@@ -67,15 +67,3 @@ int contains(ArrayList *list, int e) {
 int isEmpty(ArrayList* list){
     return list->size == 0;
 }
-
-int main() {
-    ArrayList *array = initArray(10);
-    for (int i = 0; i < 10; ++i) {
-        addLast(array, i);
-    }
-    for (int i = 0; i < 10; ++i) {
-        contains(array, i+1);
-    }
-
-    return 0;
-}

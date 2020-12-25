@@ -113,15 +113,3 @@ int contains(LinkedList *list, int e) {
 int isEmpty(LinkedList *list) {
     return (list->size) == 0;
 }
-
-int main() {
-    LinkedList *list = initLinkedList(0);
-    add(list, 1);
-    add(list, 2);
-    add(list, 3);
-    removeElement(list, 1);
-    printf("%d\n", contains(list, 1));
-    printf("%d\n", isEmpty(list));
-    order(list);
-    return 0;
-}

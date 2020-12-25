@@ -51,17 +51,3 @@ void order(Queue* q){
     printf("\n");
     printf("tail.\n");
 }
-
-int main() {
-    Queue *q = initQueue(10);
-    for (int i = 0; i < 10; ++i) {
-        enqueue(q, i);
-    }
-    order(q);
-    for (int i = 0; i < 9; ++i) {
-        deque(q);
-    }
-    order(q);
-    printf("%d\n", isEmpty(q));
-    printf("%d", getSize(q));
-}
