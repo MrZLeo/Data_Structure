@@ -1,6 +1,9 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include "Basic.h"
+
+#define true 1
+#define false 0
+#define error -1
 
 // Node store integer.
 struct Node;

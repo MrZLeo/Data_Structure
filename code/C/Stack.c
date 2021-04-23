@@ -1,5 +1,8 @@
-#include "Basic.h"
+#include <stdlib.h>
+#include <stdio.h>
 
+#define false 0
+#define error -1
 typedef struct stack {
     int *arr;
     int top;
@@ -33,6 +36,6 @@ int isEmpty(stack *stack) {
     return stack->top == -1;
 }
 
-int isFull(stack* stack) {
+int isFull(stack *stack) {
     return stack->top == stack->capacity - 1;
 }

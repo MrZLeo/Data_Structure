@@ -1,4 +1,7 @@
-#include "Basic.h"
+#include <stdlib.h>
+#include <stdio.h>
+
+#define error -1
 
 struct Queue;
 typedef struct Queue Queue;
@@ -11,7 +14,7 @@ struct Queue {
 
 Queue *initQueue(int capacity) {
     Queue *q = (Queue *) malloc(sizeof(struct Queue));
-    q->arr = (int*)malloc(sizeof(int) * capacity);
+    q->arr = (int *) malloc(sizeof(int) * capacity);
     q->capacity = capacity;
     q->head = -1;
     q->tail = -1;
@@ -42,10 +45,10 @@ int getSize(Queue *queue) {
     return queue->tail - queue->head;
 }
 
-void order(Queue* q){
+void order(Queue *q) {
     printf("Queue:\n");
     printf("head: ");
-    for (int i = q->head+1; i <= q->tail; ++i) {
+    for (int i = q->head + 1; i <= q->tail; ++i) {
         printf("%d ", q->arr[i]);
     }
     printf("\n");
