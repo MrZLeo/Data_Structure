@@ -11,40 +11,42 @@
 #include <mutex>
 #include <thread>
 #include "Complex.h"
+#include "linked_queue.h"
+#include "vector_queue.h"
 
 
-using std::vector;
-using std::map;
-using std::string;
-using std::stack;
-
-class Father {
-private:
-    int f1;
-    int f2;
-public:
-    Father(int f1, int f2) : f1(f1), f2(f2) {}
-
-    virtual void print() = 0;
-};
-
-class Son : public Father {
-private:
-    int s;
-public:
-    Son(int f1, int f2, int score) : Father(f1, f2), s(score) {}
-
-    void print() override {
-        std::cout << "son" << std::endl;
-    }
-};
-using namespace std;
 
 int main() {
-    char str[] = "world"; cout << sizeof(str) << ": ";
-    char *p  = str;   cout << sizeof(p) << ": ";
-    char i  = 10;   cout << sizeof(i) << ": ";
-    void *pp  = malloc(10); cout << sizeof(pp) << endl;
+    linked::Char_queue charQueue;
+    charQueue.enqueue('1');
+    charQueue.enqueue('2');
+    charQueue.enqueue('3');
+    charQueue.enqueue('4');
+    charQueue.enqueue('5');
+    charQueue.enqueue('6');
+    charQueue.enqueue('7');
+    charQueue.enqueue('8');
+    while (!charQueue.empty()) {
+        char temp = charQueue.dequeue();
+        std::cout << temp << " ";
+    }
+
+    std::cout << std::endl;
+
+    vec::Char_queue cq;
+    cq.enqueue('1');
+    cq.enqueue('2');
+    cq.enqueue('3');
+    cq.enqueue('4');
+    cq.enqueue('5');
+    cq.enqueue('6');
+    cq.enqueue('7');
+    cq.enqueue('8');
+    while (!cq.empty()) {
+        char temp = cq.dequeue();
+        std::cout << temp << " ";
+    }
+
 
     return 0;
 }
