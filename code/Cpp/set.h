@@ -49,7 +49,6 @@ public:
 
     ~set() {
         delete[] __begin_;
-        std::cout << "~" << std::endl;
     }
 
     friend std::ostream &operator<<(std::ostream &os, const set &s) {

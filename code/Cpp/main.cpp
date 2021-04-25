@@ -1,20 +1,5 @@
 #include <iostream>
-#include <vector>
-#include <queue>
-#include <stack>
-#include <string>
-#include <cstdlib>
-#include <memory>
-#include <cstring>
-#include <map>
-#include <algorithm>
-#include <mutex>
-#include <thread>
-#include "Complex.h"
 #include "linked_queue.h"
-#include "vector_queue.h"
-
-
 
 int main() {
     linked::Char_queue charQueue;
@@ -33,19 +18,24 @@ int main() {
 
     std::cout << std::endl;
 
-    vec::Char_queue cq;
-    cq.enqueue('1');
-    cq.enqueue('2');
-    cq.enqueue('3');
-    cq.enqueue('4');
-    cq.enqueue('5');
-    cq.enqueue('6');
-    cq.enqueue('7');
-    cq.enqueue('8');
-    while (!cq.empty()) {
-        char temp = cq.dequeue();
-        std::cout << temp << " ";
-    }
+//    vec::Char_queue cq;
+//    cq.enqueue('1');
+//    cq.enqueue('2');
+//    cq.enqueue('3');
+//    cq.enqueue('4');
+//    cq.enqueue('5');
+//    cq.enqueue('6');
+//    cq.enqueue('7');
+//    cq.enqueue('8');
+//    for (int i = 0; i < 39; ++i) {
+//        cq.enqueue('1');
+//    }
+//    while (!cq.empty()) {
+//        char temp = cq.dequeue();
+//        std::cout << temp << " ";
+//    }
+//    cq.enqueue('a');
+
 
 
     return 0;

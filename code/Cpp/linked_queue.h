@@ -25,7 +25,9 @@ public:
 
     T dequeue() {
         T ret = head.next->data;
+        Node *temp = head.next;
         head.next = head.next->next;
+        delete temp;
         return ret;
     }
 
@@ -34,7 +36,7 @@ public:
         tail = tail->next;
     }
 
-    [[nodiscard]] bool full() const { return false; }
+    [[maybe_unused]] [[nodiscard]] bool full() const { return false; }
 
 private:
     struct Node {
