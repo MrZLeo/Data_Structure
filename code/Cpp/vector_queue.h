@@ -6,6 +6,7 @@
 #define TEST_VECTOR_QUEUE_H
 
 #include "linked_queue.h"
+#include "helper.h"
 
 template<class T>
 class vector_queue {
@@ -18,6 +19,8 @@ public:
     [[nodiscard]] bool empty() const { return head == tail; }
 
     T dequeue() {
+        helper::assert_handler(!empty(), "Dequeue called with empty vector queue");
+
         T ret = queue[head];
         head = (head + 1) % capacity;
         return ret;

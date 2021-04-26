@@ -6,6 +6,7 @@
 #define TEST_LINKED_QUEUE_H
 
 #include <iostream>
+#include "helper.h"
 
 template<class T>
 class linked_queue {
@@ -24,6 +25,8 @@ public:
     [[nodiscard]] bool empty() const { return head.next == nullptr; }
 
     T dequeue() {
+        helper::assert_handler(!empty(), "Dequeue called with empty linked queue");
+
         T ret = head.next->data;
         Node *temp = head.next;
         head.next = head.next->next;
